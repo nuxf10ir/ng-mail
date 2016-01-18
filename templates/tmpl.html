@@ -1,0 +1,48 @@
+<div class="row">
+    <folders-list></folders-list>
+    <messages-list></messages-list>
+
+    <script type="text/ng-template" id="templates/folders-list.html">
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+                <li class="nav-sidebar-item"
+                    ng-repeat="state in layoutController.states"
+                    ng-class="{'active' : layoutController.getLayout() == state.type}"
+                    ng-click="layoutController.setLayout(state.type)">
+                    <a href="#" ng-cloak>
+                        {{::state.title}}
+                        <span class="badge" ng-bind="state.count"></span>
+                    </a>
+
+                </li>
+            </ul>
+        </div>
+    </script>
+
+    <script type="text/ng-template" id="templates/messages-list.html">
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <h1 class="page-header">Входящие</h1>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Пикч</th>
+                        <th>Почта</th>
+                        <th>Тема</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="message in layoutController.messages | filter:{ type: layoutController.getLayout()}">
+                            <td>
+                                <img ng-src="https://randomuser.me/api/portraits/thumb/men/{{$index}}.jpg" class="img-circle img-responsive" />
+                            </td>
+                            <td ng-bind="message.email"></td>
+                            <td ng-bind="message.theme"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </script>
+
+</div>
