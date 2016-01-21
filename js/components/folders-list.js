@@ -1,6 +1,5 @@
-/**
- * Created by sin on 18.01.2016.
- */
+"use strict";
+
 app.directive('foldersList', function(){
     return {
         restrict: 'E',

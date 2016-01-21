@@ -1,12 +1,9 @@
-/**
- * Created by sin on 18.01.2016.
- */
 "use strict";
 
 app.directive("layout", function () {
     return {
         restrict: "E",
-        controller: "LayoutController as layoutController",
+        controller: "LayoutController as layoutCtrl",
         replace: true,
         templateUrl: "templates/tmpl.html",
         link: function () {
